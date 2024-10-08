@@ -1,0 +1,34 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+
+        
+        {
+            "name": "Start App",
+            // "runtimeVersion": "20.16.0",
+            "runtimeArgs": ["start"],
+            "env": {
+                "BROWSER": "none"
+            },
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "type": "node",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Run Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ],
+    "compounds": [
+        {
+          "name": "Debug App",
+          "configurations": ["Start App", "Run Chrome"],
+          "stopAll": true
+        }
+    ]
+}
